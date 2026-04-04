@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Ahmet Altun | Personal Space',
-  description: 'Developer & Creator - Personal hub for projects and work',
+  title: 'Ahmet Altuntecim | Personal Space',
+  description: 'Personal hub for projects and work',
   generator: 'v0.app',
   icons: {
     icon: [

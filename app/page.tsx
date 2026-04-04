@@ -24,13 +24,8 @@ export default function HomePage() {
         {/* Header */}
         <header className="mb-16">
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-            Ahmet Altun
+            Ahmet Altuntecim
           </h1>
-          <p className="mt-2 text-lg text-primary">Developer & Creator</p>
-          <p className="mt-6 max-w-xl text-muted-foreground leading-relaxed">
-            Dijital deneyimler ve web uygulamaları geliştiriyorum. Projelerim
-            aracılığıyla kullanıcı odaklı çözümler sunmayı hedefliyorum.
-          </p>
         </header>
 
         {/* Navigation */}
@@ -93,18 +88,6 @@ export default function HomePage() {
           <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-muted-foreground">
             Hakkımda
           </h2>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Web teknolojileri ve modern uygulama geliştirme konusunda tutkulu
-              bir geliştiriciyim. Kullanıcı deneyimini ön planda tutarak,
-              performanslı ve erişilebilir uygulamalar oluşturmaya odaklanıyorum.
-            </p>
-            <p>
-              React, Next.js, TypeScript ve modern CSS teknolojileri ile
-              çalışıyorum. Her projede en iyi pratikleri uygulamayı ve sürekli
-              öğrenmeyi hedefliyorum.
-            </p>
-          </div>
         </section>
 
         {/* Contact Section */}
@@ -112,28 +95,15 @@ export default function HomePage() {
           <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-muted-foreground">
             İletişim
           </h2>
-          <p className="mb-6 text-muted-foreground">
-            Bir proje hakkında konuşmak veya merhaba demek isterseniz, benimle
-            iletişime geçebilirsiniz.
+          <p className="text-muted-foreground">
+            Beni bilen dostlarım bana nasıl ulaşılacağını bilir.
           </p>
-          <div className="flex gap-4">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground transition-all hover:border-primary/50 hover:bg-secondary hover:text-primary"
-                aria-label={social.label}
-              >
-                <social.icon className="h-5 w-5" />
-              </a>
-            ))}
-          </div>
         </section>
 
         {/* Footer */}
         <footer className="border-t border-border pt-8">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Ahmet Altun. Tüm hakları saklıdır.
+            &copy; {new Date().getFullYear()} Ahmet Altuntecim. Tüm hakları saklıdır.
           </p>
         </footer>
       </div>
