@@ -5,8 +5,8 @@ const projects = [
   {
     title: "HomeStay Buddy",
     description: "Konaklama ve seyahat yardımcınız",
-    href: "/homestay-buddy",
-    isInternal: true,
+    href: "https://home-stay-buddy.vercel.app/",
+    isInternal: false,
   },
 ]
 
