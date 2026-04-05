@@ -3,9 +3,9 @@ import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
 
 const projects = [
   {
-    title: "HomeStay Buddy",
+    title: "Tatil Rezervasyonum",
     description: "Konaklama ve seyahat yardımcınız",
-    href: "https://home-stay-buddy.vercel.app/",
+    href: "https://app.ahmetaltuntecim.space/",
     isInternal: false,
   },
 ]
