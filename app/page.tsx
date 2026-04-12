@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link"
-import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import { useState } from "react"
 
 const projects = [
   {
@@ -10,14 +13,22 @@ const projects = [
   },
 ]
 
-const socials = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Mail, href: "mailto:ahmetaltuntecim@gmail.com", label: "Email" },
-]
+const aboutContent = {
+  tr: [
+    "Ahmet Altuntecim, fen lisesi eğitiminin ardından lisans derecesini Özyeğin Üniversitesi Endüstri Mühendisliği Bölümü'nde İngilizce olarak tamamladı. Kariyerine özel sektörde iş analisti olarak adım attıktan sonra, 2020 yılında Türkiye'nin dijital bankacılık dönüşümüne yön veren Ziraat Teknoloji bünyesine katıldı. Burada, milyonlarca kullanıcıyı etkileyen geniş ölçekli sistem dönüşümlerinde ve kritik yatırım bankacılığı projelerinde sergilediği üstün performansla, operasyonel verimliliğe değer katan stratejik çözümler geliştirdi.",
+    "Profesyonel birikimini akademik başarıyla devam ettirerek Birleşik Krallık'ta Kingston University London'da Mühendislik Projeleri ve Sistem Yönetimi alanında yüksek lisansını onur derecesiyle tamamladı. Kariyer yolculuğunda küresel havacılık ve savunma sanayi devi Collins Aerospace'in Birleşik Krallık operasyonlarında Proje Yöneticisi olarak görev alarak, fabrikanın en yüksek bütçeli ve kompleks uluslararası projelerinden birini başarıyla yönetti.",
+    "İş hayatındaki disiplinli ve rekabetçi yaklaşımını sportif başarılarıyla pekiştiren Altuntecim, aynı zamanda bir milli yüzücüdür. 2022 yılında Boğaziçi Kıtalararası Yüzme Yarışı'nı başarıyla tamamlamış; aynı yıl düzenlenen Masterlar Yüzme Şampiyonası'nda 50m, 200m ve 1500m serbest stilde altın madalya kazanarak Türkiye Şampiyonu olmuştur. Fen lisesinden gelen analitik temelini ve spor dünyasından kazandığı azmi profesyonel kimliğine yansıtan Ahmet Altuntecim, halihazırda Ziraat Teknoloji bünyesinde uzman iş analisti olarak finansal teknolojilerin geleceğine katkı sunmaya devam etmektedir.",
+  ],
+  en: [
+    "Ahmet Altuntecim completed his undergraduate studies in Industrial Engineering at Ozyegin University, following his graduation from a prestigious science high school. After starting his career as a business analyst in the private sector, he joined Ziraat Teknoloji in 2020, a pioneering institution driving Turkey's digital banking transformation. During this period, he developed strategic solutions that added significant value to operational efficiency through his outstanding performance in large-scale system migrations and critical investment banking projects impacting millions of users.",
+    "Furthering his professional expertise with academic excellence, he earned his Master of Science (MSc) in Engineering Projects and Systems Management with honors from Kingston University London in the United Kingdom. His career trajectory led him to the global aerospace and defense giant Collins Aerospace, where he served as a Project Manager in their UK operations, successfully managing one of the facility's highest-budget and most complex international projects.",
+    "Altuntecim reinforces his disciplined and competitive professional approach with his athletic achievements as a national swimmer. In 2022, he successfully completed the Bosphorus Cross-Continental Swimming Race and was crowned the Turkish National Champion at the Masters Swimming Championships, winning gold medals in the 50m, 200m, and 1500m freestyle events. Integrating the analytical foundation from his science high school background with the perseverance gained from the world of sports, Ahmet Altuntecim currently continues to contribute to the future of financial technologies as a senior business analyst at Ziraat Teknoloji.",
+  ],
+}
 
 export default function HomePage() {
+  const [lang, setLang] = useState<"tr" | "en">("tr")
+
   return (
     <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
@@ -85,9 +96,75 @@ export default function HomePage() {
 
         {/* About Section */}
         <section id="about" className="mb-20">
-          <h2 className="mb-8 text-sm font-medium uppercase tracking-widest text-muted-foreground">
-            Hakkımda
-          </h2>
+          <div className="mb-8 flex items-center justify-between">
+            <h2 className="text-sm font-medium uppercase tracking-widest text-muted-foreground">
+              Hakkımda
+            </h2>
+            {/* Language Toggle */}
+            <div className="flex items-center gap-1 rounded-full border border-border bg-card p-1">
+              <button
+                onClick={() => setLang("tr")}
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
+                  lang === "tr"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                TR
+              </button>
+              <button
+                onClick={() => setLang("en")}
+                className={`rounded-full px-3 py-1 text-xs font-medium transition-all ${
+                  lang === "en"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            {aboutContent[lang].map((paragraph, i) => (
+              <p key={i} className="text-base leading-relaxed text-foreground/80">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          {/* Highlights */}
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="rounded-lg border border-border bg-card p-5">
+              <p className="text-2xl font-bold text-foreground">🏊</p>
+              <p className="mt-2 text-sm font-semibold text-foreground">
+                {lang === "tr" ? "Milli Yüzücü" : "National Swimmer"}
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {lang === "tr"
+                  ? "Türkiye Şampiyonu · 50m, 200m, 1500m"
+                  : "Turkish Champion · 50m, 200m, 1500m"}
+              </p>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-5">
+              <p className="text-2xl font-bold text-foreground">✈️</p>
+              <p className="mt-2 text-sm font-semibold text-foreground">
+                Collins Aerospace
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {lang === "tr" ? "Proje Yöneticisi · BK" : "Project Manager · UK"}
+              </p>
+            </div>
+            <div className="rounded-lg border border-border bg-card p-5">
+              <p className="text-2xl font-bold text-foreground">🏦</p>
+              <p className="mt-2 text-sm font-semibold text-foreground">
+                Ziraat Teknoloji
+              </p>
+              <p className="mt-1 text-xs text-muted-foreground">
+                {lang === "tr" ? "Uzman İş Analisti" : "Senior Business Analyst"}
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* Contact Section */}
