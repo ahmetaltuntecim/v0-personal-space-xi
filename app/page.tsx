@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
 
 const projects = [
@@ -22,7 +23,15 @@ export default function HomePage() {
     <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
         {/* Header */}
-        <header className="mb-16">
+        <header className="mb-16 flex items-center gap-6">
+          <Image 
+            src="/logo.png" 
+            alt="Site Logo" 
+            width={80} 
+            height={80} 
+            className="rounded-full shadow-md"
+            priority
+          />
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Ahmet Altuntecim
           </h1>
